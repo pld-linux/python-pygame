@@ -5,7 +5,7 @@
 Summary:	Python modules designed for writing games
 Summary(pl):	Modu³y Pythona dla pisz±cych gry
 Name:		python-%{module}
-Version:	1.5
+Version:	1.5.5
 Release:	1
 License:	LGPL
 Group:		Libraries/Python

@@ -10,6 +10,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz
+# Source0-md5:	fa135364e2d9f12acfb528f477418e0e
 URL:		http://www.pygame.org/
 BuildRequires:	python-devel >= 2.2.1
 BuildRequires:	python-numpy-devel

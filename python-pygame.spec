@@ -66,7 +66,7 @@ python setup.py install \
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 
-gzip -9nf README* WHATSNEW 
+gzip -9nf README* WHATSNEW
 
 %clean
 rm -rf $RPM_BUILD_ROOT

@@ -1,5 +1,5 @@
 
-%define module pygame
+%define		module	pygame
 
 %include	/usr/lib/rpm/macros.python
 Summary:	Python modules designed for writing games
@@ -14,7 +14,6 @@ Group(pl):	Programowanie/Jêzyki/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz
 Patch0:		%{name}-detect.patch
 URL:		http://www.pygame.org/
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %requires_eq	python
 BuildRequires:	python-devel >= 1.5
 BuildRequires:	python-numpy-devel
@@ -24,6 +23,7 @@ BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	smpeg-devel
 BuildRequires:	rpm-pythonprov
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Pygame is a set of Python modules designed for writing games. It is

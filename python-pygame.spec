@@ -1,21 +1,22 @@
+%include	/usr/lib/rpm/macros.python
 
 %define		module	pygame
 
-%include	/usr/lib/rpm/macros.python
 Summary:	Python modules designed for writing games
 Summary(pl):	Modu³y Pythona dla pisz±cych gry
 Name:		python-%{module}
 Version:	1.3
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Development/Languages/Python
 Group(de):	Entwicklung/Sprachen/Python
+Group(es):	Desarrollo/Lenguages/Python
+Group(fr):	Development/Langues/Python
 Group(pl):	Programowanie/Jêzyki/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz
 Patch0:		%{name}-detect.patch
 URL:		http://www.pygame.org/
-%requires_eq	python
-BuildRequires:	python-devel >= 1.5
+BuildRequires:	python-devel >= 2.2
 BuildRequires:	python-numpy-devel
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_ttf-devel
@@ -23,6 +24,7 @@ BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	smpeg-devel
 BuildRequires:	rpm-pythonprov
+%requires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -43,6 +45,8 @@ Summary:	C header files for pygame modules
 Summary(pl):	Pliki nag³ówkowe jêzyka C modu³ów pygame
 Group:		Development/Languages/Python
 Group(de):	Entwicklung/Sprachen/Python
+Group(es):	Desarrollo/Lenguages/Python
+Group(fr):	Development/Langues/Python
 Group(pl):	Programowanie/Jêzyki/Python
 %requires_eq	python
 Requires:	%{name} = %{version}

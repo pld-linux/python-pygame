@@ -12,7 +12,7 @@ Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz
 Patch0:		%{name}-detect.patch
 URL:		http://www.pygame.org/
-BuildRequires:	python-devel >= 2.2
+BuildRequires:	python-devel >= 2.2.1
 BuildRequires:	python-numpy-devel
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_ttf-devel

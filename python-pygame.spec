@@ -20,7 +20,7 @@ BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	smpeg-devel
 BuildRequires:	rpm-pythonprov
-%requires_eq	python
+%pyrequires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,7 +40,7 @@ Python.
 Summary:	C header files for pygame modules
 Summary(pl):	Pliki nag³ówkowe jêzyka C modu³ów pygame
 Group:		Development/Languages/Python
-%requires_eq	python
+%pyrequires_eq	python
 Requires:	%{name} = %{version}
 
 %description devel

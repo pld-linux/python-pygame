@@ -13,6 +13,7 @@ Group(de):	Entwicklung/Sprachen/Python
 Group(es):	Desarrollo/Lenguages/Python
 Group(fr):	Development/Langues/Python
 Group(pl):	Programowanie/Jêzyki/Python
+Group(pt):	Desenvolvimento/Línguas/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz
 Patch0:		%{name}-detect.patch
 URL:		http://www.pygame.org/
@@ -48,6 +49,7 @@ Group(de):	Entwicklung/Sprachen/Python
 Group(es):	Desarrollo/Lenguages/Python
 Group(fr):	Development/Langues/Python
 Group(pl):	Programowanie/Jêzyki/Python
+Group(pt):	Desenvolvimento/Línguas/Python
 %requires_eq	python
 Requires:	%{name} = %{version}
 

@@ -6,7 +6,7 @@ Summary:	Python modules designed for writing games
 Summary(pl):	Modu³y Pythona dla pisz±cych gry
 Name:		python-%{module}
 Version:	1.4
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz docs/* examples
+%doc *.gz docs/*
 %dir %{py_sitedir}/%{module}
 %{py_sitedir}/%{module}/*.ttf
 %attr(755,root,root) %{py_sitedir}/%{module}/*.so

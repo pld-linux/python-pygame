@@ -9,11 +9,6 @@ Version:	1.3
 Release:	2
 License:	LGPL
 Group:		Development/Languages/Python
-Group(de):	Entwicklung/Sprachen/Python
-Group(es):	Desarrollo/Lenguages/Python
-Group(fr):	Development/Langues/Python
-Group(pl):	Programowanie/Jêzyki/Python
-Group(pt):	Desenvolvimento/Línguas/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz
 Patch0:		%{name}-detect.patch
 URL:		http://www.pygame.org/
@@ -45,11 +40,6 @@ Python.
 Summary:	C header files for pygame modules
 Summary(pl):	Pliki nag³ówkowe jêzyka C modu³ów pygame
 Group:		Development/Languages/Python
-Group(de):	Entwicklung/Sprachen/Python
-Group(es):	Desarrollo/Lenguages/Python
-Group(fr):	Development/Langues/Python
-Group(pl):	Programowanie/Jêzyki/Python
-Group(pt):	Desenvolvimento/Línguas/Python
 %requires_eq	python
 Requires:	%{name} = %{version}
 

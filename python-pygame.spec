@@ -5,8 +5,8 @@
 Summary:	Python modules designed for writing games
 Summary(pl):	Modu³y Pythona dla pisz±cych gry
 Name:		python-%{module}
-Version:	1.3
-Release:	2
+Version:	1.4
+Release:	1
 License:	LGPL
 Group:		Development/Languages/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz
@@ -63,10 +63,13 @@ rm -rf $RPM_BUILD_ROOT
 python setup.py install \
 	--root=$RPM_BUILD_ROOT
 
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a examples $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 
-gzip -9nf README* WHATSNEW
+gzip -9nf WHATSNEW
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -82,3 +85,4 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{py_incdir}/%{module}
+%{_examplesdir}/%{name}-%{version}

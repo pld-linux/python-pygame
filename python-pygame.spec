@@ -6,7 +6,7 @@ Summary:	Python modules designed for writing games
 Summary(pl):	Modu³y Pythona dla pisz±cych gry
 Name:		python-%{module}
 Version:	1.4
-Release:	5
+Release:	6
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz
@@ -15,9 +15,9 @@ URL:		http://www.pygame.org/
 BuildRequires:	python-devel >= 2.2.1
 BuildRequires:	python-numpy-devel
 BuildRequires:	SDL-devel
-BuildRequires:	SDL_ttf-devel
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
+BuildRequires:	SDL_ttf-devel >= 2.0
 BuildRequires:	smpeg-devel
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python
@@ -59,24 +59,22 @@ python setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 python setup.py install \
 	--root=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
-
-gzip -9nf WHATSNEW
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz docs/*
+%doc WHATSNEW docs/*
 %dir %{py_sitedir}/%{module}
 %{py_sitedir}/%{module}/*.ttf
 %attr(755,root,root) %{py_sitedir}/%{module}/*.so

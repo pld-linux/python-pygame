@@ -5,7 +5,7 @@ Summary:	Python modules designed for writing games
 Summary(pl):	Modu³y Pythona dla pisz±cych gry
 Name:		python-%{module}
 Version:	1.6
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz

@@ -4,12 +4,12 @@
 Summary:	Python modules designed for writing games
 Summary(pl):	Modu³y Pythona dla pisz±cych gry
 Name:		python-%{module}
-Version:	1.6
-Release:	4
+Version:	1.7.1
+Release:	1
 License:	LGPL
 Group:		Libraries/Python
-Source0:	http://www.pygame.org/ftp/pygame-%{version}.tar.gz
-# Source0-md5:	ea5db930c0031873a7f5ad1f2f7926db
+Source0:	http://www.pygame.org/ftp/pygame-%{version}release.tar.gz
+# Source0-md5:	05d86d1af446f79411359400951053b7
 URL:		http://www.pygame.org/
 BuildRequires:	python-devel >= 2.2.1
 BuildRequires:	python-numpy-devel
@@ -49,7 +49,7 @@ C header files for pygame modules.
 Pliki nag³ówkowe jêzyka C modu³ów pygame.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{module}-%{version}release
 
 %build
 CFLAGS="%{rpmcflags} -I%{_prefix}/X11R6/include/smpeg"; export CFLAGS

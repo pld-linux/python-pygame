@@ -11,8 +11,8 @@ Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}release.tar.gz
 # Source0-md5:	05d86d1af446f79411359400951053b7
 URL:		http://www.pygame.org/
+BuildRequires:	python-Numeric-devel
 BuildRequires:	python-devel >= 2.2.1
-BuildRequires:	python-numpy-devel
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
@@ -39,7 +39,7 @@ Summary:	C header files for pygame modules
 Summary(pl):	Pliki nag³ówkowe jêzyka C modu³ów pygame
 Group:		Development/Languages/Python
 %pyrequires_eq	python
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 C header files for pygame modules.
@@ -51,7 +51,7 @@ Pliki nag³ówkowe jêzyka C modu³ów pygame.
 %setup -q -n %{module}-%{version}release
 
 %build
-CFLAGS="%{rpmcflags} -I%{_prefix}/X11R6/include/smpeg"; export CFLAGS
+CFLAGS="%{rpmcflags} -I/usr/include/smpeg"; export CFLAGS
 python setup.py build
 
 %install

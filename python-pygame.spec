@@ -2,7 +2,7 @@
 %define		module	pygame
 
 Summary:	Python modules designed for writing games
-Summary(pl):	Modu³y Pythona dla pisz±cych gry
+Summary(pl.UTF-8):   ModuÅ‚y Pythona dla piszÄ…cych gry
 Name:		python-%{module}
 Version:	1.7.1
 Release:	2
@@ -28,15 +28,15 @@ fully featured games and multimedia programs in the python language.
 The package is highly portable, with games running on Windows, NT4,
 MacOS, OSX, BeOS, FreeBSD, IRIX, and Linux.
 
-%description -l pl
-Pygame jest zbiorem modu³ów Pythona zaprojektowanych do pisania gier.
-Modu³y te zosta³y napisane na bazie wspania³ej biblioteki SDL. Dziêki
-temu mo¿liwe jest tworzenie bogatych w multimedia gier w jêzyku
+%description -l pl.UTF-8
+Pygame jest zbiorem moduÅ‚Ã³w Pythona zaprojektowanych do pisania gier.
+ModuÅ‚y te zostaÅ‚y napisane na bazie wspaniaÅ‚ej biblioteki SDL. DziÄ™ki
+temu moÅ¼liwe jest tworzenie bogatych w multimedia gier w jÄ™zyku
 Python.
 
 %package devel
 Summary:	C header files for pygame modules
-Summary(pl):	Pliki nag³ówkowe jêzyka C modu³ów pygame
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe jÄ™zyka C moduÅ‚Ã³w pygame
 Group:		Development/Languages/Python
 %pyrequires_eq	python
 Requires:	%{name} = %{version}-%{release}
@@ -44,8 +44,8 @@ Requires:	%{name} = %{version}-%{release}
 %description devel
 C header files for pygame modules.
 
-%description devel -l pl
-Pliki nag³ówkowe jêzyka C modu³ów pygame.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe jÄ™zyka C moduÅ‚Ã³w pygame.
 
 %prep
 %setup -q -n %{module}-%{version}release

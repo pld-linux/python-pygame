@@ -2,7 +2,7 @@
 %define		module	pygame
 
 Summary:	Python modules designed for writing games
-Summary(pl.UTF-8):   Moduły Pythona dla piszących gry
+Summary(pl.UTF-8):	Moduły Pythona dla piszących gry
 Name:		python-%{module}
 Version:	1.7.1
 Release:	2
@@ -36,7 +36,7 @@ Python.
 
 %package devel
 Summary:	C header files for pygame modules
-Summary(pl.UTF-8):   Pliki nagłówkowe języka C modułów pygame
+Summary(pl.UTF-8):	Pliki nagłówkowe języka C modułów pygame
 Group:		Development/Languages/Python
 %pyrequires_eq	python
 Requires:	%{name} = %{version}-%{release}

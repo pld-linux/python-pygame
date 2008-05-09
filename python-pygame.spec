@@ -4,12 +4,12 @@
 Summary:	Python modules designed for writing games
 Summary(pl.UTF-8):	Moduły Pythona dla piszących gry
 Name:		python-%{module}
-Version:	1.7.1
-Release:	3
+Version:	1.8.0
+Release:	1
 License:	LGPL
 Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}release.tar.gz
-# Source0-md5:	05d86d1af446f79411359400951053b7
+# Source0-md5:	8d9cca47d356db2ada07865aa066dceb
 URL:		http://www.pygame.org/
 BuildRequires:	python-Numeric-devel
 BuildRequires:	python-devel >= 2.2.1

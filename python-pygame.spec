@@ -18,6 +18,8 @@ BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	SDL_ttf-devel >= 2.0
 BuildRequires:	smpeg-devel
+BuildRequires:	libpng-devel
+BuildRequires:	libjpeg-devel
 %pyrequires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

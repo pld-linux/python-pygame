@@ -1,3 +1,6 @@
+#
+# TODO: - unpackaged files
+#
 
 %define		module	pygame
 

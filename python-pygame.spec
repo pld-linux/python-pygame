@@ -4,22 +4,24 @@
 Summary:	Python modules designed for writing games
 Summary(pl.UTF-8):	Moduły Pythona dla piszących gry
 Name:		python-%{module}
-Version:	1.8.0
-Release:	3
-License:	LGPL
+Version:	1.9.1
+Release:	1
+License:	LGPL v2.1+
 Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}release.tar.gz
-# Source0-md5:	8d9cca47d356db2ada07865aa066dceb
+# Source0-md5:	1c4cdc708d17c8250a2d78ef997222fc
 URL:		http://www.pygame.org/
-BuildRequires:	python-Numeric-devel
-BuildRequires:	python-devel >= 2.2.1
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
 BuildRequires:	SDL_mixer-devel
 BuildRequires:	SDL_ttf-devel >= 2.0
-BuildRequires:	smpeg-devel
-BuildRequires:	libpng-devel
 BuildRequires:	libjpeg-devel
+BuildRequires:	libpng-devel
+BuildRequires:	portmidi-devel
+BuildRequires:	python-Numeric-devel
+BuildRequires:	python-devel >= 2.2.1
+BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	smpeg-devel
 %pyrequires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,6 +69,7 @@ cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT

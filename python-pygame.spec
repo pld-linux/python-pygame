@@ -1,5 +1,9 @@
 #
-# TODO: - unpackaged files
+# TODO: - unpackaged files:
+#		_site-packages/pygame/docs/*
+#		_site-packages/pygame/examples/*
+#		_site-packages/pygame/gp2x/*
+#		_site-packages/pygame/tests/*
 #
 
 %define		module	pygame
@@ -8,7 +12,7 @@ Summary:	Python modules designed for writing games
 Summary(pl.UTF-8):	Moduły Pythona dla piszących gry
 Name:		python-%{module}
 Version:	1.9.1
-Release:	1.1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}release.tar.gz

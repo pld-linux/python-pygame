@@ -8,7 +8,7 @@ Summary:	Python modules designed for writing games
 Summary(pl.UTF-8):	Moduły Pythona dla piszących gry
 Name:		python-%{module}
 Version:	1.9.1
-Release:	1
+Release:	1.1
 License:	LGPL v2.1+
 Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}release.tar.gz
@@ -84,6 +84,8 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitedir}/%{module}/*.ttf
 %attr(755,root,root) %{py_sitedir}/%{module}/*.so
 %{py_sitedir}/%{module}/*.py[co]
+%dir %{py_sitedir}/%{module}/threads/
+%{py_sitedir}/%{module}/threads/*.py[co]
 
 %files devel
 %defattr(644,root,root,755)

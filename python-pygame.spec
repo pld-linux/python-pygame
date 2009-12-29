@@ -27,6 +27,8 @@ BuildRequires:	libpng-devel
 BuildRequires:	portmidi-devel
 BuildRequires:	python-Numeric-devel
 BuildRequires:	python-devel >= 2.2.1
+BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 BuildRequires:	smpeg-devel
 %pyrequires_eq	python

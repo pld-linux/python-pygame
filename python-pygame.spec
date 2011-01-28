@@ -25,7 +25,7 @@ BuildRequires:	SDL_mixer-devel
 BuildRequires:	SDL_ttf-devel >= 2.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
-BuildRequires:	portmidi-devel
+BuildRequires:	portmidi-devel >= 217
 BuildRequires:	python-Numeric-devel
 BuildRequires:	python-devel >= 2.2.1
 BuildRequires:	python-modules

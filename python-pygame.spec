@@ -17,6 +17,7 @@ License:	LGPL v2.1+
 Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}release.tar.gz
 # Source0-md5:	1c4cdc708d17c8250a2d78ef997222fc
+Patch0:		%{name}-porttime.patch
 URL:		http://www.pygame.org/
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
@@ -62,6 +63,7 @@ Pliki nagłówkowe języka C modułów pygame.
 
 %prep
 %setup -q -n %{module}-%{version}release
+%patch0 -p1
 
 %build
 CFLAGS="%{rpmcflags} -I/usr/include/smpeg"; export CFLAGS

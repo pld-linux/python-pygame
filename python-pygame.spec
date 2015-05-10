@@ -12,13 +12,14 @@ Summary:	Python modules designed for writing games
 Summary(pl.UTF-8):	Moduły Pythona dla piszących gry
 Name:		python-%{module}
 Version:	1.9.1
-Release:	14
+Release:	15
 License:	LGPL v2.1+
 Group:		Libraries/Python
 Source0:	http://www.pygame.org/ftp/pygame-%{version}release.tar.gz
 # Source0-md5:	1c4cdc708d17c8250a2d78ef997222fc
 Patch0:		%{name}-porttime.patch
 Patch1:		%{name}-remove-v4l.patch
+Patch2:		x32.patch
 URL:		http://www.pygame.org/
 BuildRequires:	SDL-devel
 BuildRequires:	SDL_image-devel
@@ -66,6 +67,7 @@ Pliki nagłówkowe języka C modułów pygame.
 %setup -q -n %{module}-%{version}release
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 CFLAGS="%{rpmcflags} -I/usr/include/smpeg"; export CFLAGS

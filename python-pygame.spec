@@ -71,14 +71,13 @@ Pliki nagłówkowe języka C modułów pygame.
 
 %build
 CFLAGS="%{rpmcflags} -I/usr/include/smpeg"; export CFLAGS
-python setup.py build
+%py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-python setup.py install \
-	--root=$RPM_BUILD_ROOT
+%py_install
 
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 

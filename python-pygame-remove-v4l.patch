@@ -12,16 +12,19 @@ been deprecated from the Linux kernel as of 2.6.38. Support
 in pygame was just a placeholder, and removing it
 will not change any functionality.
 
-diff -r 15eeb4b2082188e15502286ad439d30cb9195504 -r 8296cad317177b84fa52e6757c198391804e1b1b Setup_Unix.in
---- a/Setup.in	Fri Apr 15 20:47:04 2011 +0000
-+++ b/Setup.in	Sat Apr 23 18:39:19 2011 +0000
-@@ -1,2 +1,2 @@
- #This file defines platform specific modules for linux
+--- pygame-1.9.1release/Setup.in.orig	2024-09-24 22:12:09.045405793 +0200
++++ pygame-1.9.1release/Setup.in	2024-09-24 22:12:46.358536984 +0200
+@@ -34,7 +34,7 @@ _numericsurfarray src/_numericsurfarray.
+ _numericsndarray src/_numericsndarray.c $(SDL) $(MIXER) $(DEBUG)
+ movie src/movie.c $(SDL) $(SMPEG) $(DEBUG)
+ scrap src/scrap.c $(SDL) $(SCRAP) $(DEBUG)
 -_camera src/_camera.c src/camera_v4l2.c src/camera_v4l.c $(SDL) $(DEBUG)
 +_camera src/_camera.c src/camera_v4l2.c $(SDL) $(DEBUG)
-diff -r 15eeb4b2082188e15502286ad439d30cb9195504 -r 8296cad317177b84fa52e6757c198391804e1b1b src/_camera.c
---- a/src/_camera.c	Fri Apr 15 20:47:04 2011 +0000
-+++ b/src/_camera.c	Sat Apr 23 18:39:19 2011 +0000
+ pypm src/pypm.c $(SDL) $(PORTMIDI) $(PORTTIME) $(DEBUG)
+ 
+ GFX = src/SDL_gfx/SDL_gfxPrimitives.c 
+--- pygame-1.9.1release/src/_camera.c.orig	2009-03-15 20:30:41.000000000 +0100
++++ pygame-1.9.1release/src/_camera.c	2024-09-24 22:13:54.234835933 +0200
 @@ -22,7 +22,7 @@
   * Author: Nirav Patel
   *
@@ -31,8 +34,8 @@ diff -r 15eeb4b2082188e15502286ad439d30cb9195504 -r 8296cad317177b84fa52e6757c19
   * much modification of existing functions.  v4l2 functions are kept seperate
   * from functions available to pygame users and generic functions like
   * colorspace conversion.
-@@ -165,20 +165,8 @@
- PyObject* camera_start (PyCameraObject* self) {
+@@ -160,20 +160,8 @@ PyObject* camera_start (PyCameraObject*
+ {
  #if defined(__unix__)
      if (v4l2_open_device(self) == 0) {
 -        if (v4l_open_device(self) == 0) {
@@ -54,18 +57,17 @@ diff -r 15eeb4b2082188e15502286ad439d30cb9195504 -r 8296cad317177b84fa52e6757c19
      } else {
          self->camera_type = CAM_V4L2;
          if (v4l2_init_device(self) == 0) {
-diff -r 15eeb4b2082188e15502286ad439d30cb9195504 -r 8296cad317177b84fa52e6757c198391804e1b1b src/camera.h
---- a/src/camera.h	Fri Apr 15 20:47:04 2011 +0000
-+++ b/src/camera.h	Sat Apr 23 18:39:19 2011 +0000
-@@ -38,7 +38,6 @@
+--- pygame-1.9.1release/src/camera.h.orig	2008-10-10 04:37:10.000000000 +0200
++++ pygame-1.9.1release/src/camera.h	2024-09-24 22:14:57.011162511 +0200
+@@ -39,7 +39,6 @@
  
      #include <asm/types.h>          /* for videodev2.h */
  
 -    #include <linux/videodev.h>
      #include <linux/videodev2.h>
- #elif defined(__APPLE__)
-     #include <QuickTime/QuickTime.h>
-@@ -64,7 +63,7 @@
+ #endif
+ 
+@@ -51,7 +50,7 @@
  #define RGB_OUT 1
  #define YUV_OUT 2
  #define HSV_OUT 4
@@ -73,8 +75,8 @@ diff -r 15eeb4b2082188e15502286ad439d30cb9195504 -r 8296cad317177b84fa52e6757c19
 +#define CAM_V4L 1 /* deprecated. the incomplete support in pygame was removed */
  #define CAM_V4L2 2
  
- struct buffer {
-@@ -165,8 +164,4 @@
+ struct buffer 
+@@ -111,8 +110,4 @@ int v4l2_init_device (PyCameraObject* se
  int v4l2_close_device (PyCameraObject* self);
  int v4l2_open_device (PyCameraObject* self);
  

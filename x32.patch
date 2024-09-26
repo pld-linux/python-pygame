@@ -1,11 +1,28 @@
 --- pygame-1.9.6/buildconfig/config_unix.py.orig	2019-04-25 08:14:17.000000000 +0200
-+++ pygame-1.9.6/buildconfig/config_unix.py	2024-09-26 17:35:08.789307494 +0200
-@@ -149,7 +149,7 @@ def main(sdl2=False):
++++ pygame-1.9.6/buildconfig/config_unix.py	2024-09-26 19:38:56.998397169 +0200
+@@ -149,11 +149,10 @@ def main(sdl2=False):
      #these get prefixes with '/usr' and '/usr/local' or the $LOCALBASE
      if sdl2:
          origincdirs = ['/include', '/include/SDL2']
 -        origlibdirs = ['/lib','/lib64','/X11R6/lib',
-+        origlibdirs = ['/lib','/lib64','/libx32',
-                        '/lib/i386-linux-gnu', '/lib/x86_64-linux-gnu']
+-                       '/lib/i386-linux-gnu', '/lib/x86_64-linux-gnu']
++        origlibdirs = ['/lib','/lib64','/libx32']
      else:
-         origincdirs = ['/include', '/include/SDL', '/include/SDL']
+-        origincdirs = ['/include', '/include/SDL', '/include/SDL']
+-        origlibdirs = ['/lib','/lib64','/X11R6/lib']
++        origincdirs = ['/include', '/include/SDL']
++        origlibdirs = ['/lib','/lib64','/libx32']
+     if 'ORIGLIBDIRS' in os.environ and os.environ['ORIGLIBDIRS'] != "":
+         origlibdirs = os.environ['ORIGLIBDIRS'].split(":")
+ 
+--- pygame-1.9.6/src_c/scale_mmx.c.orig	2019-04-25 08:14:17.000000000 +0200
++++ pygame-1.9.6/src_c/scale_mmx.c	2024-09-26 20:21:01.509926690 +0200
+@@ -29,7 +29,7 @@
+  * Including source code like this may be frowned upon by some,
+  * but the alternative is ungainly conditionally compiled code.
+  */
+-#   if defined(__x86_64__)
++#   if defined(__x86_64__) && defined(__LP64__)
+ #       include "scale_mmx64.c"
+ #   elif defined(__i386__)
+ #       include "scale_mmx32.c"

@@ -13,6 +13,7 @@ License:	LGPL v2.1+
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/p/pygame/pygame-%{version}.tar.gz
 # Source0-md5:	36f8817874f9e63acdf12914340b60e9
+Patch0:		pygame-py2-types.patch
 Patch2:		x32.patch
 URL:		https://www.pygame.org/
 BuildRequires:	SDL-devel
@@ -78,6 +79,7 @@ Przykłady do modułów Pythona pygame.
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p1
 %patch2 -p1
 
 %build

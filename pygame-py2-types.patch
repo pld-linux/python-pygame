@@ -1,0 +1,24 @@
+--- pygame-1.9.6/src_c/font.c.orig	2019-04-25 08:14:17.000000000 +0200
++++ pygame-1.9.6/src_c/font.c	2024-09-26 19:48:26.221792668 +0200
+@@ -548,8 +548,8 @@ font_metrics(PyObject *self, PyObject *a
+     int advance;
+     PyObject *obj;
+     PyObject *listitem;
+-    Uint16* buffer;
+-    Uint16 ch;
++    char* buffer;
++    char ch;
+     PyObject *temp;
+     int surrogate;
+ 
+--- pygame-1.9.6/src_c/event.c.orig	2019-04-25 08:14:17.000000000 +0200
++++ pygame-1.9.6/src_c/event.c	2024-09-26 19:57:56.855188202 +0200
+@@ -1718,7 +1718,7 @@ static PyMethodDef _event_methods[] = {
+      "auto initialize for event module"},
+ #endif /* IS_SDLv2 */
+ 
+-    {"Event", pg_Event, 3, DOC_PYGAMEEVENTEVENT},
++    {"Event", (PyCFunction)pg_Event, 3, DOC_PYGAMEEVENTEVENT},
+     {"event_name", event_name, METH_VARARGS, DOC_PYGAMEEVENTEVENTNAME},
+ 
+     {"set_grab", set_grab, METH_VARARGS, DOC_PYGAMEEVENTSETGRAB},

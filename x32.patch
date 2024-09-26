@@ -1,22 +1,11 @@
---- pygame-1.9.1release/config_unix.py~	2015-05-10 12:40:56.000000000 +0200
-+++ pygame-1.9.1release/config_unix.py	2015-05-10 12:47:41.989724259 +0200
-@@ -17,7 +17,7 @@
- #these get prefixes with '/usr' and '/usr/local' or the $LOCALBASE
- origincdirs = ['/include', '/include/SDL', '/include/SDL',
-                '/include/smpeg' ]
--origlibdirs = ['/lib','/lib64','/X11R6/lib']
-+origlibdirs = ['/lib','/lib64','/libx32']
- 
- def confirm(message):
-     "ask a yes/no question, return result"
---- pygame-1.9.1release/src/scale_mmx.c~	2009-05-26 23:15:24.000000000 +0200
-+++ pygame-1.9.1release/src/scale_mmx.c	2015-05-10 12:52:36.495345985 +0200
-@@ -29,7 +29,7 @@
-  * Including source code like this may be frowned upon by some,
-  * but the alternative is ungainly conditionally compiled code.
-  */
--#   if defined(__x86_64__)
-+#   if defined(__x86_64__) && !defined(__ILP32__)
- #       include "scale_mmx64.c"
- #   elif defined(__i386__)
- #       include "scale_mmx32.c"
+--- pygame-1.9.6/buildconfig/config_unix.py.orig	2019-04-25 08:14:17.000000000 +0200
++++ pygame-1.9.6/buildconfig/config_unix.py	2024-09-26 17:35:08.789307494 +0200
+@@ -149,7 +149,7 @@ def main(sdl2=False):
+     #these get prefixes with '/usr' and '/usr/local' or the $LOCALBASE
+     if sdl2:
+         origincdirs = ['/include', '/include/SDL2']
+-        origlibdirs = ['/lib','/lib64','/X11R6/lib',
++        origlibdirs = ['/lib','/lib64','/libx32',
+                        '/lib/i386-linux-gnu', '/lib/x86_64-linux-gnu']
+     else:
+         origincdirs = ['/include', '/include/SDL', '/include/SDL']

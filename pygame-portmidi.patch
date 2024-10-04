@@ -1,0 +1,22 @@
+--- pygame-2.0.3/src_c/cython/pygame/pypm.pyx.orig	2021-10-31 16:49:23.000000000 +0100
++++ pygame-2.0.3/src_c/cython/pygame/pypm.pyx	2024-10-04 21:47:29.565174454 +0200
+@@ -542,7 +542,7 @@ cdef class Input:
+         self.debug = 0
+ 
+         err = Pm_OpenInput(&(self.midi), input_device, NULL, buffersize,
+-                           &Pt_Time, NULL)
++                           <PmTimeProcPtr>&Pt_Time, NULL)
+         if err < 0:
+             raise Exception(Pm_GetErrorText(err))
+ 
+--- pygame-2.0.3/src_c/pypm.c.orig	2021-10-31 16:49:23.000000000 +0100
++++ pygame-2.0.3/src_c/pypm.c	2024-10-04 21:47:07.065045505 +0200
+@@ -4662,7 +4662,7 @@ static int __pyx_pf_6pygame_4pypm_5Input
+  *         if err < 0:
+  *             raise Exception(Pm_GetErrorText(err))
+  */
+-  __pyx_v_err = Pm_OpenInput((&__pyx_v_self->midi), __pyx_t_2, NULL, __pyx_t_3, (&Pt_Time), NULL);
++  __pyx_v_err = Pm_OpenInput((&__pyx_v_self->midi), __pyx_t_2, NULL, __pyx_t_3, (PmTimeProcPtr)(&Pt_Time), NULL);
+ 
+   /* "pygame/pypm.pyx":546
+  *         err = Pm_OpenInput(&(self.midi), input_device, NULL, buffersize,

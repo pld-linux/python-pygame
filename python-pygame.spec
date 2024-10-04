@@ -16,6 +16,7 @@ Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/p/pygame/pygame-%{version}.tar.gz
 # Source0-md5:	04e082d216b3b771b8d52769597b2fb2
 Patch0:		pygame-py2-types.patch
+Patch1:		pygame-portmidi.patch
 Patch2:		x32.patch
 URL:		https://www.pygame.org/
 %if %{with sdl1}
@@ -89,6 +90,7 @@ Przykłady do modułów Pythona pygame.
 %prep
 %setup -q -n %{module}-%{version}
 %patch0 -p1
+%patch1 -p1
 %patch2 -p1
 
 # missing file, required for py2

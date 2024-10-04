@@ -1,24 +1,33 @@
---- pygame-1.9.6/src_c/font.c.orig	2019-04-25 08:14:17.000000000 +0200
-+++ pygame-1.9.6/src_c/font.c	2024-09-26 19:48:26.221792668 +0200
-@@ -548,8 +548,8 @@ font_metrics(PyObject *self, PyObject *a
-     int advance;
-     PyObject *obj;
-     PyObject *listitem;
--    Uint16* buffer;
--    Uint16 ch;
-+    char* buffer;
-+    char ch;
-     PyObject *temp;
-     int surrogate;
+--- pygame-2.0.3/src_c/font.c.orig	2021-10-31 16:49:23.000000000 +0100
++++ pygame-2.0.3/src_c/font.c	2024-10-04 06:16:51.713822968 +0200
+@@ -745,7 +745,7 @@ font_dealloc(PyFontObject *self)
+         if (self->ttf_init_generation != current_ttf_generation) {
+             // Since TTF_Font is a private structure
+             // it's impossible to access face field in a common way.
+-            int** face_pp = font;
++            int** face_pp = (int**)font;
+             *face_pp = NULL;
+         }
+         TTF_CloseFont(font);
+--- pygame-2.0.3/src_c/_pygame.h.orig	2021-10-31 16:49:23.000000000 +0100
++++ pygame-2.0.3/src_c/_pygame.h	2024-10-04 06:17:00.351563606 +0200
+@@ -250,7 +250,7 @@ typedef enum {
+ #error No support for PEP 3118/Py_TPFLAGS_HAVE_NEWBUFFER. Please use a supported Python version.
+ #endif */
  
---- pygame-1.9.6/src_c/event.c.orig	2019-04-25 08:14:17.000000000 +0200
-+++ pygame-1.9.6/src_c/event.c	2024-09-26 19:57:56.855188202 +0200
-@@ -1718,7 +1718,7 @@ static PyMethodDef _event_methods[] = {
-      "auto initialize for event module"},
- #endif /* IS_SDLv2 */
+-#define RAISE(x, y) (PyErr_SetString((x), (y)), (PyObject *)NULL)
++#define RAISE(x, y) (PyErr_SetString((x), (y)), NULL)
+ #define DEL_ATTR_NOT_SUPPORTED_CHECK(name, value)           \
+     do {                                                    \
+        if (!value) {                                        \
+--- pygame-2.0.3/src_c/transform.c.orig	2021-10-31 16:49:23.000000000 +0100
++++ pygame-2.0.3/src_c/transform.c	2024-10-04 06:24:54.917312357 +0200
+@@ -668,7 +668,7 @@ surf_rotate(PyObject *self, PyObject *ar
+     surf = pgSurface_AsSurface(surfobj);
+     if (surf->w < 1 || surf->h < 1) {
+         Py_INCREF(surfobj);
+-        return surfobj;
++        return (PyObject *)surfobj;
+     }
  
--    {"Event", pg_Event, 3, DOC_PYGAMEEVENTEVENT},
-+    {"Event", (PyCFunction)pg_Event, 3, DOC_PYGAMEEVENTEVENT},
-     {"event_name", event_name, METH_VARARGS, DOC_PYGAMEEVENTEVENTNAME},
- 
-     {"set_grab", set_grab, METH_VARARGS, DOC_PYGAMEEVENTSETGRAB},
+     if (surf->format->BytesPerPixel == 0 || surf->format->BytesPerPixel > 4)

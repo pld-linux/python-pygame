@@ -1,17 +1,19 @@
---- pygame-1.9.6/buildconfig/config_unix.py.orig	2019-04-25 08:14:17.000000000 +0200
-+++ pygame-1.9.6/buildconfig/config_unix.py	2024-09-26 19:38:56.998397169 +0200
-@@ -149,11 +149,10 @@ def main(sdl2=False):
+--- pygame-2.0.3/buildconfig/config_unix.py.orig	2024-10-03 22:31:41.481965431 +0200
++++ pygame-2.0.3/buildconfig/config_unix.py	2024-10-04 06:25:17.535875741 +0200
+@@ -136,14 +136,10 @@ def main(sdl2=False):
      #these get prefixes with '/usr' and '/usr/local' or the $LOCALBASE
      if sdl2:
          origincdirs = ['/include', '/include/SDL2']
--        origlibdirs = ['/lib','/lib64','/X11R6/lib',
--                       '/lib/i386-linux-gnu', '/lib/x86_64-linux-gnu']
-+        origlibdirs = ['/lib','/lib64','/libx32']
+-        origlibdirs = ['/lib', '/lib64', '/X11R6/lib',
+-                       '/lib/i386-linux-gnu', '/lib/x86_64-linux-gnu',
+-                       '/lib/arm-linux-gnueabihf/', '/lib/aarch64-linux-gnu/']
+-
++        origlibdirs = ['/lib', '/lib64', '/libx32']
      else:
--        origincdirs = ['/include', '/include/SDL', '/include/SDL']
--        origlibdirs = ['/lib','/lib64','/X11R6/lib']
-+        origincdirs = ['/include', '/include/SDL']
-+        origlibdirs = ['/lib','/lib64','/libx32']
+         origincdirs = ['/include', '/include/SDL', '/include/SDL']
+-        origlibdirs = ['/lib', '/lib64', '/X11R6/lib', '/lib/arm-linux-gnueabihf/',
+-                       '/lib/aarch64-linux-gnu/']
++        origlibdirs = ['/lib', '/lib64', '/libx32']
      if 'ORIGLIBDIRS' in os.environ and os.environ['ORIGLIBDIRS'] != "":
          origlibdirs = os.environ['ORIGLIBDIRS'].split(":")
  
